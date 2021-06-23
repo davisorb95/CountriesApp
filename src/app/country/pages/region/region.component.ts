@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Country } from '../../interfaces/country.interface';
 
 @Component({
   selector: 'app-region',
@@ -6,11 +7,23 @@ import { Component, OnInit } from '@angular/core';
   styles: [
   ]
 })
-export class RegionComponent implements OnInit {
+export class RegionComponent {
+  regions: string[] = ['africa', 'americas', 'europe', 'oceania'];
+  activeRegion: string = '';
+  countries: Country[] = [];
 
   constructor() { }
 
-  ngOnInit(): void {
+  getCssClass( region: string ): string {
+    return region === this.activeRegion ? 'btn btn-primary' : 'btn btn-outline-primary';
+  }
+
+  activateRegion( region: string ): void {
+    if ( region === this.activeRegion ) { return; }
+
+    this.activeRegion = region;
+
+    // ...
   }
 
 }

@@ -1,1 +1,28 @@
-<p>country-table works!</p>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th> # </th>
+            <th> Flag </th>
+            <th> Name </th>
+            <th> Population </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr
+            *ngFor="let country of countries; index as i">
+            <td> {{ i + 1 }} </td>
+            <td>
+                <img 
+                    class="small-flag" 
+                    [src]="country.flag" 
+                    alt="flag">
+            </td>
+            <td> {{ country.capital }}, {{ country.name }} </td>
+            <td> {{ country.population | number }} </td>
+            <td>
+                <a [routerLink]="['/country', country.alpha2Code]">View...</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
