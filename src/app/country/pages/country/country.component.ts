@@ -48,6 +48,6 @@ export class CountryComponent {
       .subscribe(
         ( countries: Country[] ) => this.suggestionCountries = countries.splice( 0, 5 ),
         ( err ) => this.suggestionCountries = []
-      )
+      );
   }
 }
